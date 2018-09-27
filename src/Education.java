@@ -1,7 +1,7 @@
 public class Education {
 
     private String major;
-    private String colleage;
+    private String college;
     private String yearOfGraduation;
 
     public String getMajor() {
@@ -12,12 +12,12 @@ public class Education {
         this.major = major;
     }
 
-    public String getColleage() {
-        return colleage;
+    public String getCollege() {
+        return college;
     }
 
-    public void setColleage(String colleage) {
-        this.colleage = colleage;
+    public void setColleage(String college) {
+        this.college = college;
     }
 
     public String getYearOfGraduation() {
