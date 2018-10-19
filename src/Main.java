@@ -8,6 +8,17 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
 
+/*
+
+        Person person new Person();
+        Resume resume = new Resume(person,ex, edu, skil);
+ArrayList<Resume> allResum = new ArrayList<>();
+
+allResum.add(resume);
+*/
+
+        System.out.println();
+
         ArrayList<Person> allPerson = new ArrayList<>();
         ArrayList<Education> allEducation = new ArrayList<>();
         ArrayList<Experience> allExperience = new ArrayList<>();
@@ -49,11 +60,10 @@ public class Main {
             String phoneNum = input.nextLine();
             person.setPhoneNumber(phoneNum);
 
-            allPerson.add(person);
+             allPerson.add(person);
 
             do {
                 System.out.println("Education");
-
 
                 System.out.println("Enter your Major");
                 String major = input.nextLine();
@@ -66,10 +76,13 @@ public class Main {
                 System.out.println("Year of graduation");
                 String year = input.nextLine();
                 education.setYearOfGraduation(year);
+                person.addEducation(education);
+
                 System.out.println("Do you want to add more Education? yes/no");
+
                 option = input.nextLine();
             } while (option.equalsIgnoreCase("yes"));
-            allEducation.add(education);
+            // allEducation.add(education);
 
             do {
                 System.out.println("Experience");
@@ -87,16 +100,21 @@ public class Main {
                 String yearsOfExperience = input.nextLine();
                 experience.setYearsOfExperience(yearsOfExperience);
 
+                do {
+                    //duties
+                    Duty duty1 = new Duty();
+                    System.out.println("Duties");
+                    String duty = input.nextLine();
+                    duty1.setDuty(duty);
+                    experience.addDuty(duty1);
+                } while (option.equalsIgnoreCase("y"));
 
-                //duties
-                System.out.println("Duties");
-                String duty = input.nextLine();
                 System.out.println("Do you want to add more experience? yes/no");
                 option = input.nextLine();
             } while (option.equalsIgnoreCase("yes"));
-            allExperience.add(experience);
+           // allExperience.add(experience);
 
-
+            person.addExprince(experience);
 
             System.out.println("  Skills");
             Skill skill = new Skill();
@@ -114,11 +132,16 @@ public class Main {
             System.out.println("Do you want to add more Person? yes/no");
             option = input.nextLine();
 
+            System.out.println(person.getName()+person.getEmail());
+            for(Education education1:person.getaEducation()){
+                System.out.println(education1.getCollege());
+            }
+
         } while (option.equalsIgnoreCase("yes"));
 
-
-
+        System.out.println();
 
 
     }
+
 }

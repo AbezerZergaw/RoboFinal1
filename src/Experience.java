@@ -47,10 +47,13 @@ public class Experience {
     }
 
 
-    public void setDute() {
+    public void setDute()
+    {
         this.duties = duties;
     }
     public void addDuty(Duty duty){
-        duties.add(duty);
+
+        this.duties.add(duty);
     }
+
 }

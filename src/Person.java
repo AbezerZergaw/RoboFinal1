@@ -85,4 +85,7 @@ public class Person {
     public void setaSkill(ArrayList<Skill> aSkill) {
         this.aSkill = aSkill;
     }
+    public void addExprince(Experience experience){
+        this.aExperince.add(experience);
+    }
 }
