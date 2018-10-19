@@ -80,4 +80,7 @@ public class Person {
     public void addSkill(Skill skill) {
         this.aSkill.add(skill);
     }
+    public void addExprince(Experience experience){
+        this.aExperince.add(experience);
+    }
 }
