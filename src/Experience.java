@@ -1,12 +1,24 @@
+import java.util.ArrayList;
+
 public class Experience {
 
     private String position;
     private String companyName;
     private String yearsOfExperience;
-    private String dute;
+    private ArrayList<Duty> duties;
 
-    public String getDute() {
-        return dute;
+    public Experience(String position, String companyName, String yearsOfExperience, ArrayList<Duty> duties) {
+        this.position = position;
+        this.companyName = companyName;
+        this.yearsOfExperience = yearsOfExperience;
+        this.duties = duties;
+    }
+
+    public Experience() {
+    }
+
+    public ArrayList<Duty> getDute() {
+        return duties;
     }
 
     public String getPosition() {
@@ -35,7 +47,10 @@ public class Experience {
     }
 
 
-    public void setDute(String dute) {
-        this.dute = dute;
+    public void setDute() {
+        this.duties = duties;
+    }
+    public void addDuty(Duty duty){
+        duties.add(duty);
     }
 }

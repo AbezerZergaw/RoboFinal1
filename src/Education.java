@@ -4,6 +4,15 @@ public class Education {
     private String college;
     private String yearOfGraduation;
 
+    public Education(String major, String college, String yearOfGraduation) {
+        this.major = major;
+        this.college = college;
+        this.yearOfGraduation = yearOfGraduation;
+    }
+
+    public Education() {
+    }
+
     public String getMajor() {
         return major;
     }
