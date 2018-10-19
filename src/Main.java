@@ -7,34 +7,17 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-
+//list of person
         ArrayList<Person> allPerson = new ArrayList<>();
-        ArrayList<Education> allEducation = new ArrayList<>();
-        ArrayList<Experience> allExperience = new ArrayList<>();
-        ArrayList<Skill> allSkills = new ArrayList<>();
-        Education education = new Education();
-        Experience experience = new Experience();
-   /*     Person person = new Person();
-        person.setName("Abezes");
-        allPerson.add(person);
-        Education education = new Education();
-        education.setMajor("IT");
-        allEducation.add(education);
-        person.addEducation(education);
-        person = new Person("Abezes", allEducation);
-        allPerson.add(person);
-        for (Person eachPerson : allPerson) {
-            System.out.println(eachPerson.getName());
-            for (Education listOfEducation : eachPerson.getaEducation()) {
-                System.out.println(listOfEducation.getMajor());
-            }
-        }
-*/
+        Person person = new Person();
+
+        //choice for the do while loop
         String option = "";
+        //count for duty on print line
+        int count = 1;
+
         do {
-
-            Person person = new Person();
-
+            //creating profile
             System.out.println("Profile");
             System.out.println("Enter your Name");
 
@@ -52,9 +35,10 @@ public class Main {
             allPerson.add(person);
 
             do {
+                //creating education in loop
                 System.out.println("Education");
 
-
+                Education education = new Education();
                 System.out.println("Enter your Major");
                 String major = input.nextLine();
                 education.setMajor(major);
@@ -66,14 +50,16 @@ public class Main {
                 System.out.println("Year of graduation");
                 String year = input.nextLine();
                 education.setYearOfGraduation(year);
-                System.out.println("Do you want to add more Education? yes/no");
+                person.addEducation(education);
+                System.out.println("Do you want to add more Education? Y/N");
                 option = input.nextLine();
-            } while (option.equalsIgnoreCase("yes"));
-            allEducation.add(education);
+            } while (option.equalsIgnoreCase("Y"));
+
 
             do {
+                //creating experience
                 System.out.println("Experience");
-
+                Experience experience = new Experience();
                 System.out.println("Position");
                 String position = input.nextLine();
                 experience.setPosition(position);
@@ -86,39 +72,77 @@ public class Main {
                 System.out.println("Year of Experience");
                 String yearsOfExperience = input.nextLine();
                 experience.setYearsOfExperience(yearsOfExperience);
+                person.addExprince(experience);
+                do {
+                    // creating duties
+                    Duty duty1 = new Duty();
+                    System.out.println("Duties");
+                    String duty = input.nextLine();
+                    duty1.setActivties(duty);
+                    experience.addDuty(duty1);
+                    System.out.println("Add more duties? Y/N");
+                    option = input.nextLine();
+                } while (option.equalsIgnoreCase("y"));
 
 
-                //duties
-                System.out.println("Duties");
-                String duty = input.nextLine();
-                System.out.println("Do you want to add more experience? yes/no");
+                System.out.println("Do you want to add more experience? Y/N");
                 option = input.nextLine();
             } while (option.equalsIgnoreCase("yes"));
-            allExperience.add(experience);
 
 
+            do {
+                System.out.println("  Skills");
+                //creating skills
+                Skill skill = new Skill();
+                System.out.println("Enter your skill");
+                String skills = input.nextLine();
+                skill.setSkills(skills);
+                System.out.println(" Level of Skill");
+                String level = input.nextLine();
+                skill.setLevel(level);
+                System.out.println("Add more skills? Y/N");
+                person.addSkill(skill);
 
-            System.out.println("  Skills");
-            Skill skill = new Skill();
+                option = input.nextLine();
+            } while (option.equalsIgnoreCase("Y"));
 
-            System.out.println("Enter your skill");
-            String skills = input.nextLine();
-            skill.setSkills(skills);
-            System.out.println(" Level of Skill");
-
-            String level = input.nextLine();
-            skill.setLevel(level);
-
-            allSkills.add(skill);
-
-            System.out.println("Do you want to add more Person? yes/no");
+            System.out.println("Do you want to add more Person? Y/N");
             option = input.nextLine();
 
-        } while (option.equalsIgnoreCase("yes"));
+        } while (option.equalsIgnoreCase("Y"));
 
 
+        System.out.println("======================================================");
+        //printing out all
+        System.out.println(person.getName() + "\n" + person.getEmail() + "\n" + person.getPhoneNumber() + "\n");
 
+        System.out.println("Education");
+        for (Education eachEducation : person.getaEducation()) {
+            System.out.println(eachEducation.getMajor() + "\n" + eachEducation.getCollege()
+                    + "\n" + eachEducation.getYearOfGraduation() + "\n");
+        }
+        System.out.println("Experience");
+        for (Experience eachExperience : person.getaExperince()) {
+            System.out.println(eachExperience.getPosition() + "\n" +
+                    eachExperience.getCompanyName() + "\n" + eachExperience.getYearsOfExperience());
+            for (Duty dutyList : eachExperience.getDute()) {
+
+                System.out.println("-Duty " + count + "," + dutyList.getActivties());
+                count++;
+            }
+
+        }
+        System.out.println();
+        System.out.println("Skills");
+        for (Skill eachSkill : person.getaSkill()) {
+            System.out.println(eachSkill.getSkills() + "," + eachSkill.getLevel());
+
+        }
 
 
     }
+
+
 }
+
+

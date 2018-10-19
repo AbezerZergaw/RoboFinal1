@@ -3,10 +3,6 @@ public class Skill {
     private String skills;
     private String level;
 
-    public Skill(String skills, String level) {
-        this.skills = skills;
-        this.level = level;
-    }
 
     public Skill() {
     }

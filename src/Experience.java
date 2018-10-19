@@ -7,14 +7,9 @@ public class Experience {
     private String yearsOfExperience;
     private ArrayList<Duty> duties;
 
-    public Experience(String position, String companyName, String yearsOfExperience, ArrayList<Duty> duties) {
-        this.position = position;
-        this.companyName = companyName;
-        this.yearsOfExperience = yearsOfExperience;
-        this.duties = duties;
-    }
 
     public Experience() {
+        duties = new ArrayList<Duty>();
     }
 
     public ArrayList<Duty> getDute() {
@@ -47,10 +42,7 @@ public class Experience {
     }
 
 
-    public void setDute() {
-        this.duties = duties;
-    }
-    public void addDuty(Duty duty){
+    public void addDuty(Duty duty) {
         duties.add(duty);
     }
 }

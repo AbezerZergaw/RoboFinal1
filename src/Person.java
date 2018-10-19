@@ -10,16 +10,13 @@ public class Person {
     private ArrayList<Experience> aExperince;
     private ArrayList<Skill> aSkill;
 
-    public Person(String name, String email, ArrayList<Education> aEducation, ArrayList<Experience> aExperince, ArrayList<Skill> aSkill) {
-        this.name = name;
-        this.email = email;
-        this.aEducation = aEducation;
-        this.aExperince = aExperince;
-        this.aSkill = aSkill;
+    public Person() {
+
+        aEducation = new ArrayList<Education>();
+        aExperince = new ArrayList<Experience>();
+        aSkill = new ArrayList<Skill>();
     }
 
-    public Person() {
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -29,9 +26,9 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public Person(String name, ArrayList<Education> aEducation){
+    public Person(String name, ArrayList<Education> aEducation) {
         this.name = name;
-        this.aEducation= aEducation;
+        this.aEducation = aEducation;
     }
 
     public Person(String name, String email) {
@@ -43,7 +40,6 @@ public class Person {
     public ArrayList<Education> getaEducation() {
         return aEducation;
     }
-
 
 
     public String getName() {
@@ -61,28 +57,27 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void addEducation (Education education){
+
+    public void addEducation(Education education) {
 
         aEducation.add(education);
-    }
-
-    public void setaEducation(ArrayList<Education> aEducation) {
-        this.aEducation = aEducation;
     }
 
     public ArrayList<Experience> getaExperince() {
         return aExperince;
     }
 
-    public void setaExperince(ArrayList<Experience> aExperince) {
-        this.aExperince = aExperince;
-    }
 
     public ArrayList<Skill> getaSkill() {
         return aSkill;
     }
 
-    public void setaSkill(ArrayList<Skill> aSkill) {
-        this.aSkill = aSkill;
+
+    public void addExprince(Experience experience) {
+        this.aExperince.add(experience);
+    }
+
+    public void addSkill(Skill skill) {
+        this.aSkill.add(skill);
     }
 }
